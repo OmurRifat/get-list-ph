@@ -4,6 +4,7 @@ import Home from "../components/Home/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Main from "../Layout/Main";
+import Table from "../Layout/Table";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -23,6 +24,12 @@ const router = createBrowserRouter([
                 path: '/login',
                 element: <Login></Login>
             },
+        ]
+    },
+    {
+        path: '/billings-data',
+        element: <Table></Table>,
+        children: [
             {
                 path: '/billings-data',
                 element: <PrivateRoute><BillingsData></BillingsData></PrivateRoute>

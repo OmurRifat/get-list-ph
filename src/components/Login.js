@@ -1,3 +1,5 @@
+
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
@@ -6,20 +8,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Login = () => {
-    const { setUser } = useContext(AuthContext)
+    const { setUser, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
-
 
 
     const handleLogin = (data) => {
         axios.post('http://localhost:5000/api/login', data)
             .then(res => {
                 if (res.data.status === 200) {
+                    navigate('/billings-data')
                     setUser(data)
                     toast.success("Login Sucessful.");
                     localStorage.setItem("powerHackToken", res.data.token)
-                    navigate('/billings-data')
                 }
                 else {
                     setUser(null)
