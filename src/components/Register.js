@@ -2,29 +2,26 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 // const axios = require('axios');
 
 const Register = () => {
-    const { setUser, setLoading } = useContext(AuthContext)
+    const { setUser } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const location = useLocation();
     const navigate = useNavigate();
 
-    const from = location.state?.from?.pathname || '/';
 
     const handleRegister = (data) => {
         console.log(data)
         axios.post('http://localhost:5000/api/registration', data)
             .then(res => {
                 if (res.data.status === 200) {
-                    setLoading(true)
                     setUser(data);
                     toast.success("Sucessfully Registered");
                     localStorage.setItem("powerHackToken", res.data.token)
-                    navigate(from, { replace: true })
+                    navigate('/billings-data')
                 }
                 else {
                     setUser(null);
@@ -38,7 +35,7 @@ const Register = () => {
     }
     return (
         <div>
-            <form onSubmit={ handleSubmit(handleRegister) } className=' w-2/3 md:w-1/4 mx-auto my-28'>
+            <form onSubmit={ handleSubmit(handleRegister) } className=' w-full mx-auto my-28'>
                 <div className="shadow-primary shadow-xl rounded-xl px-6 pt-10 pb-8">
                     <h4 className=' text-center mb-6  my-2 text-xl font-bold text-primary'>Register</h4>
                     <div className="relative my-2">

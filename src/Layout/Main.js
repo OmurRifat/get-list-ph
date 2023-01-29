@@ -8,7 +8,10 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Outlet></Outlet>
+            <div className=' flex flex-col md:flex-row items-center justify-around'>
+                <Home></Home>
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );
