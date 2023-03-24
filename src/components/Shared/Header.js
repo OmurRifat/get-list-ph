@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Header = () => {
+    const { totalAmmount, user, setUser } = useContext(AuthContext)
+    const logOut = () => {
+        setUser(null);
+        localStorage.removeItem("powerHackToken");
+    }
     return (
-        <div className="navbar bg-base-100">
-            <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">Power Hack</a>
+        <div className="navbar justify-between px-24 bg-slate-800 bg-opacity-60 z-10 sticky top-0 backdrop-filter backdrop-blur ">
+            <div className="">
+                <Link to='/' className="btn btn-info normal-case text-xl z-10">Energy Hack 19</Link>
             </div>
-            <div className="flex-none gap-2">
+            <div className=" gap-2">
                 <div>
-                    <p className=' p-4 bg-white rounded-md' >Total Paid: 000</p>
+                    {
+                        user ?
+                            <p className=' p-4 bg-white rounded-md text-black font-bold' >Total Paid: { totalAmmount }</p>
+                            :
+                            <p className=' p-4 bg-white rounded-md text-black font-bold' >Total Paid: 0</p>
+
+                    }
                 </div>
+                {
+                    user && <div>
+                        <button onClick={ () => logOut() } className=' p-4 bg-red-500 rounded-md text-white font-bold' ><Link to='/'>Sign Out</Link></button>
+                    </div>
+                }
                 <div className="dropdown dropdown-end">
                     {/* <label tabIndex={ 0 } className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">

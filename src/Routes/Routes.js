@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import BillingsData from "../components/Billings/BillingsData";
-import Home from "../components/Home/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Main from "../Layout/Main";

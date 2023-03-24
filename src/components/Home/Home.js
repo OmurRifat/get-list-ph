@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Login from '../Login';
+import img from '../../assets/medium.jpg'
 
 const Home = () => {
     return (
-        <div className=' min-h-screen'>
-            <div className=' h-full my-auto'>
-                <h4 className='text-3xl font-bold text-white'>This is Home Component.</h4>
-                <Link to='/'><button className='btn btn-info'>Get Update</button></Link>
+        <div className=' '>
+            <div className=' mt-20 avatar relative'>
+                <img src={ img } className='rounded-xl' alt="" />
+                <Link to='/'><button className='btn btn-info absolute bottom-10 left-14'>Get Update</button></Link>
             </div>
         </div>
     );
