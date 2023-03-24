@@ -96,7 +96,7 @@ const BillingsData = () => {
                 <table className="table w-full ">
                     <thead>
                         <tr>
-                            <th>Billing ID</th>
+                            <th className=' z-0'>Billing ID</th>
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Phone</th>

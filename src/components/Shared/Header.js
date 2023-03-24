@@ -9,9 +9,9 @@ const Header = () => {
         localStorage.removeItem("powerHackToken");
     }
     return (
-        <div className="navbar justify-between px-24 bg-slate-800 bg-opacity-60 z-10 sticky top-0 backdrop-filter backdrop-blur ">
+        <div className="navbar justify-between px-24 bg-slate-800 bg-opacity-60 z-20 sticky top-0 backdrop-filter backdrop-blur ">
             <div className="">
-                <Link to='/' className="btn btn-info normal-case text-xl z-10">Energy Hack 19</Link>
+                <Link to='/' className="btn btn-info normal-case text-xl">Energy Hack 19</Link>
             </div>
             <div className=" gap-2">
                 <div>
