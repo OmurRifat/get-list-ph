@@ -9,7 +9,12 @@ const AuthProvider = ({ children }) => {
     const [totalAmmount, setTotalAmmount] = useState(0);
 
     const authInfo = {
-        user, setUser, loading, setLoading, totalAmmount, setTotalAmmount
+        user,
+        setUser,
+        loading,
+        setLoading,
+        totalAmmount,
+        setTotalAmmount
     }
 
     return (
